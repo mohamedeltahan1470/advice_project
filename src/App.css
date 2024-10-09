@@ -1,55 +1,89 @@
-#root , html , body{
+/* Reset and Basic Styles */
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  height: 100vh;
-  box-sizing: border-box;
-}
-.app{
-  height: 100%;
-  background:url('./image/images.jpg');
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-.card{
-  background-color: whitesmoke;
-  width: 40%;
-  height: 20%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  border-radius: 25px;
-  padding: 2%;
-  box-shadow: 10px 10px;
 }
 
-.heading{
-  display: flex;
-  align-items: center;
-  height: 580px;
+html, body {
+  height: 100%;
 }
-.button{
-  position: relative;
-  outline: none;
-  text-decoration: none;
-  border-radius: 50px;
+
+/* App Container */
+.app {
+  height: 100%;
+  background: linear-gradient(to bottom right, #3a6073, #f0f4f8);
+
+   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
-  text-transform: uppercase;
-  height: 200px;
-  width: 210px;
-  opacity: 1;
-  background-color: #ffffff;
-  border: 1px solid rgb(22 , 76, 167 , 0.6);
 }
-@media only screen and (max-width:600px){
-  .card{
-    width: 80%;
-    height: 30%;
+
+/* Card Styles */
+.card {
+  position: fixed; /* اجعل البطاقة ثابتة في منتصف الشاشة */
+  top: 50%; /* تحريك البطاقة إلى منتصف الشاشة عموديًا */
+  left: 50%; /* تحريك البطاقة إلى منتصف الشاشة أفقيًا */
+  transform: translate(-50%, -50%); /* تعديل موضع البطاقة لتكون في المنتصف */
+  background-color: rgba(255, 255, 255, 0.9); /* لون خلفية شفاف */
+  width: 90%;
+  max-width: 500px; /* أقصى عرض للشاشات الكبيرة */
+  border-radius: 15px;
+  padding: 30px; /* زيادة الحشوة */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* ظل أكثر عمقًا */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s; /* تأثير الانتقال عند التحويم */
+}
+
+/* Card Hover Effect */
+.card:hover {
+  transform: translate(-50%, -50%) scale(1.05); /* رفع البطاقة عند التحويم */
+}
+
+/* Heading Styles */
+.heading {
+  text-align: center;
+  font-size: 1.8em; /* زيادة حجم الخط */
+  margin-bottom: 20px;
+  color: #333; /* لون نص أغمق */
+  font-weight: bold; /* جعل النص أكثر جاذبية */
+}
+
+/* Button Styles */
+.button {
+  background-color: #007bff; /* لون زر مميز */
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 15px 30px;
+  cursor: pointer;
+  font-size: 1em;
+  text-transform: uppercase;
+  transition: background-color 0.3s, transform 0.3s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* ظل خفيف تحت الزر */
+}
+
+/* Button Hover Effect */
+.button:hover {
+  background-color: #0056b3; /* لون أغمق عند التحويم */
+  transform: translateY(-2px); /* رفع الزر عند التحويم */
+}
+
+/* Media Queries for Responsiveness */
+@media only screen and (max-width: 600px) {
+  .card {
+    width: 95%;
+    padding: 20px; /* تعديل الحشوة لتناسب الشاشات الصغيرة */
+  }
+
+  .heading {
+    font-size: 1.5em; /* تعديل حجم الخط على الشاشات الصغيرة */
+  }
+
+  .button {
+    font-size: 0.9em; /* تعديل حجم الخط للزر */
+    padding: 10px 20px; /* تعديل الحشوة للزر */
   }
 }
